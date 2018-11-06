@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: rgba(128, 128, 128, 0.41);
+}
+
+#viewport {
+    width: 40%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+h1 {
+    margin: 3rem 0 0 0;
+    color: turquoise;
+}
+
+ul {
+    width: 40%;
+    margin: 3rem 0;
+    list-style-type: none;
+}
+
+ul li {
+    margin-top: .5rem;
+    color: turquoise;
+    height: 20px;
+}
+
+ul li button {
+    float: right;
+    font-size: .5rem;
+    height: 100%;
+    padding: 0 .3rem;
+}
+
+button:focus {
+    outline: none;
+}
+
+.input-field {
+    margin-top: 3rem;
+    width: 40%;
+}
+
+.input-field input {
+    display: block;
+    width: 100%;
+    height: 2rem;
+    padding-left: .2rem;
+    border: none;
+    border-bottom: 2px solid turquoise;
+    color: turquoise;
+    margin-bottom: 1rem;
+    outline: none;
+}
+
+#button-add, #button-delete-last {
+    box-sizing: border-box;
+    padding: .4rem;
+    font-size: .7rem;
+}
+
+#button-add {
+    background: turquoise;
+    float: left;
+}
+
+#button-delete-last {
+    float: right;
+}
+
+.input-field input::placeholder {
+    color: rgba(64, 224, 208, 0.69);
+}
+
+.input-field button:hover {
+    transform: translateY(-1px);
+}
+
+.hide-button, .delete-button, .input-field button {
+    color: white;
+    border: none;
+    transition: all .2s;
+    outline: none;
+}
+
+.hide-button {
+    background: rgba(255, 69, 0, 0.72);
+    margin-right: .4rem;
+}
+
+.delete-button, #button-delete-last {
+    background: rgba(255, 0, 0, 0.55);
+}
+
+.delete-button:hover , .hide-button:hover {
+    transform: scale(1.2);
+}
