@@ -30,14 +30,20 @@ ul {
 }
 
 ul li {
-    margin-top: .5rem;
+    margin-top: 1rem;
     color: turquoise;
     height: 20px;
 }
 
+ul li i {
+    float: left;
+    margin: .2rem;
+    cursor: pointer;
+}
+
 ul li button {
     float: right;
-    font-size: .5rem;
+    font-size: .7rem;
     height: 100%;
     padding: 0 .3rem;
 }
@@ -102,6 +108,6 @@ button:focus {
     background: rgba(255, 0, 0, 0.55);
 }
 
-.delete-button:hover , .hide-button:hover {
+.delete-button:hover , .hide-button:hover, i:hover {
     transform: scale(1.2);
 }
