@@ -36,7 +36,7 @@ var liste = {
         this.last_used_id++;
     },
 
-    addUserArticle: function()
+    addArticleFromUserInput: function()
     {
         this.user_input = document.getElementById('user-input').value;
 
@@ -101,12 +101,6 @@ var liste = {
 
 var listItem = {
 
-    li : null,
-    button_hide : null,
-    button_delete : null,
-    arrow_up: null,
-    arrow_down: null,
-
     init: function()
     {
         this.li = document.createElement('li');
@@ -156,39 +150,53 @@ var listItem = {
 
 
 
+
 liste.display();
 
-document.addEventListener('click', function(e)
-{
-    var t = e.target;
 
-    if (t.tagName == 'BUTTON')
+function handleUserInput(target)
+{
+    if (target.tagName == 'BUTTON')
     {
-        switch(t.id)
+        switch(target.id)
         {
             case "button-add":
-                liste.addUserArticle();
+                liste.addArticleFromUserInput();
                 break;
             case "button-delete-last":
                 liste.removeListItem("last");
                 break;
             default:
-                if (t.classList.contains('hide-button')) {
-                    liste.hideListItem(t.parentNode);
-                } else if (t.classList.contains('delete-button')) {
-                    liste.removeListItem(t.parentNode);
+                if (target.classList.contains('hide-button')) {
+                    liste.hideListItem(target.parentNode);
+                } else if (target.classList.contains('delete-button')) {
+                    liste.removeListItem(target.parentNode);
                 }
         }
     }
-    else if (t.tagName == 'I')
+    else if (target.tagName == 'I')
     {
-      if (t.classList.contains('fa-caret-down'))
-      {
-          liste.moveItemDown(t.parentNode);
-      }
-      else if (t.classList.contains('fa-caret-up'))
-      {
-          liste.moveItemUp(t.parentNode);
-      }
+        if (target.classList.contains('fa-caret-down'))
+        {
+            liste.moveItemDown(target.parentNode);
+        }
+        else if (target.classList.contains('fa-caret-up'))
+        {
+            liste.moveItemUp(target.parentNode);
+        }
     }
+}
+
+
+document.addEventListener('click', function(e)
+{
+    handleUserInput(e.target);
+});
+
+document.getElementById('user-input').addEventListener('keydown', function(e)
+{
+   if (e.which == 13)
+   {
+       handleUserInput(e.target);
+   }
 });
